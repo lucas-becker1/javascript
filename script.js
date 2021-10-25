@@ -1,8 +1,5 @@
-let nombre = prompt ("Hola, ingresa tu nombre");
-let edad = parseInt(prompt ("Ingresa tu edad"))
+let numero1 = parseFloat (prompt("Ingrese un numero"))
 
-if (edad > 18){
-    alert("Bienvenido " + nombre + " puedes continuar en la pagina")
-} else {
-    alert("Lo sentimos " + nombre + " no posees la edad necesaria para ingresar a la pagina")
+for(let i = 5; i<= 15; i++) {
+    console.log(`Numero ${numero1} sumado mas ${i} es igual a ${numero1 + i}`)
 }

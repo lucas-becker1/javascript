@@ -1,19 +1,74 @@
-function Producto(nombreProducto, precio, color, estampado) {
-    this.nombreProducto = nombreProducto;
-    this.precio = precio;
-    this.color = color;
-    this.estampado = estampado;
-    this.mostrar = () => console.log("Stock disponible");
+alert("¡Bienvenidos a Camisetea2!")
+
+let nombre = prompt("Ingrese nombre: ")
+let apellido = prompt("Ingrese apellido: ")
+console.log("Cliente: " + nombre + " " + apellido)
+
+alert("¡Registro exitoso!")
+
+
+class Producto {
+    constructor(nombre, talle, precio) {
+    this.nombre = nombre;
+    this.talle = talle;
+    this.precio = parseFloat(precio);
+    this.disponible = true;
+    }
+
+precioFinal() {
+    return this.precio * 1.75;
+    }
 }
 
-const producto1 = new Producto("camiseta", 500, "azul", "si")
-const producto2 = new Producto("short", 350, "azul", "si")
-const producto3 = new Producto("medias", 250, "blanco", "no")
-const producto4 = new Producto("pantalon", 700, "celeste", "no")
-const producto5 = new Producto("campera", 850, "celeste", "si")
+var arrayProductos = [];
+do {
+    var comprobacion = prompt("Ingrese el nombre del producto que desea o FIN para terminar de agregar");
+    if (comprobacion === "fin" || comprobacion === "FIN" || comprobacion === "Fin"){
+        break;
+    }else{
+        nombreP = comprobacion;
+        var talleP = prompt("Ingrese el talle del producto");
+        var precioP = prompt("Ingrese el precio del producto");
+        arrayProductos.push(new Producto(nombreP, talleP, precioP));
+    }
+}
+while (comprobacion != "fin" || comprobacion != "FIN" || comprobacion != "Fin" )
 
-const lista = [producto1.precio, producto2.precio, producto3.precio, producto4.precio, producto5.precio]
-console.log("La lista sin ordenar es: " + lista)
+console.log(arrayProductos);
 
-lista.sort()
-console.log("La lista de precios ordenada de menor a mayor es: " + lista)
+
+for (var producto of arrayProductos) {
+    console.log(producto.nombre);
+    console.log(producto.talle);
+    console.log(producto.precioFinal());
+}
+
+var ordenadosPrecio = [];
+ordenadosPrecio = arrayProductos.map (elemento => elemento);
+ordenadosPrecio.sort(function(a, b) {
+    return a.precio - b.precio;
+});
+console.log("Ordenados por precios ascendentes:");
+console.log(ordenadosPrecio);
+
+
+class Bandera {
+    constructor(numeroBandera, tamaño, color) {
+        this.numeroBandera = numeroBandera;
+        this.tamaño = tamaño;
+        this.color = color;
+    }
+
+    mostrarCaracteristicas () {
+        console.log(`Bandera n°:${this.numeroBandera} cm:${this.tamaño} color:${this.color}`)
+    }
+}
+
+const bandera1 = new Bandera (20, 200, "Azul")
+const bandera2 = new Bandera (14, 250, "Roja")
+
+console.log("Las banderas de regalo que le corresponde son: ")
+bandera1.mostrarCaracteristicas()
+bandera2.mostrarCaracteristicas()
+
+alert("Su compra y regalos fueron procesados, gracias por elegirnos!")

@@ -1,25 +1,20 @@
 alert("¡Bienvenido/a a Camisetea2!")
-
+// Aqui se registra el cliente
 let nombre = prompt("Ingrese nombre: ")
 let apellido = prompt("Ingrese apellido: ")
 console.log("Cliente: " + nombre + " " + apellido)
 
 alert("¡Registro exitoso!")
 
-
-class Producto {
-    constructor(nombre, talle, precio) {
+// Creo una funcion para los productos
+function Producto(nombre, talle, precio) {
     this.nombre = nombre;
     this.talle = talle;
     this.precio = parseFloat(precio);
     this.disponible = true;
-    }
-
-precioFinal() {
-    return this.precio * 1.75;
-    }
 }
 
+// Creo un array para que el cliente elija sus productos
 var arrayProductos = [];
 do {
     var comprobacion = prompt("Ingrese el nombre del producto que desea o FIN para terminar de agregar");
@@ -40,9 +35,10 @@ console.log(arrayProductos);
 for (var producto of arrayProductos) {
     console.log(producto.nombre);
     console.log(producto.talle);
-    console.log(producto.precioFinal());
+    console.log(producto.precio);
 }
 
+// Aqui se ordenan los productos segun su precio (en caso de ser mas de uno)
 var ordenadosPrecio = [];
 ordenadosPrecio = arrayProductos.map (elemento => elemento);
 ordenadosPrecio.sort(function(a, b) {
@@ -51,7 +47,7 @@ ordenadosPrecio.sort(function(a, b) {
 console.log("Ordenados por precios ascendentes:");
 console.log(ordenadosPrecio);
 
-
+// Creo una clase para crear banderas
 class Bandera {
     constructor(numeroBandera, tamaño, color) {
         this.numeroBandera = numeroBandera;
@@ -64,10 +60,12 @@ class Bandera {
     }
 }
 
+// Creo 2 const para poner la in
 const bandera1 = new Bandera (1, 200, "a eleccion")
 const bandera2 = new Bandera (2, 250, "a eleccion")
 
-console.log("Las banderas de regalo que le corresponde son: ")
+// Muestro por consola que banderas le corresponden de regalo al cliente
+console.log("Las banderas que le corresponde de regalo son: ")
 bandera1.mostrarCaracteristicas()
 bandera2.mostrarCaracteristicas()
 

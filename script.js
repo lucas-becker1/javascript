@@ -1,4 +1,4 @@
-alert("¡Bienvenidos a Camisetea2!")
+alert("¡Bienvenido/a a Camisetea2!")
 
 let nombre = prompt("Ingrese nombre: ")
 let apellido = prompt("Ingrese apellido: ")
@@ -60,12 +60,12 @@ class Bandera {
     }
 
     mostrarCaracteristicas () {
-        console.log(`Bandera n°:${this.numeroBandera} cm:${this.tamaño} color:${this.color}`)
+        console.log(`Bandera N°:${this.numeroBandera} CM:${this.tamaño} Color:${this.color}`)
     }
 }
 
-const bandera1 = new Bandera (20, 200, "Azul")
-const bandera2 = new Bandera (14, 250, "Roja")
+const bandera1 = new Bandera (1, 200, "a eleccion")
+const bandera2 = new Bandera (2, 250, "a eleccion")
 
 console.log("Las banderas de regalo que le corresponde son: ")
 bandera1.mostrarCaracteristicas()

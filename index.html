@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVASCRIPT</title>
 </head>
+
 <body>
     <h1>Javascript</h1>
-    <h2>Primer Pre-Entrega</h2>
+    <h2>Desafio 9</h2>
+    <h3>Ingrese sus datos:</h3>
+    <div id="containerPrincipal">
+        <div>
+            <form id="formulario">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="iText" id="iNombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="iText" id="iApellido" name="apellido">
+                </div>
+                <div class="mb-3">
+                    <label for="materia" class="form-label">Materia</label>
+                    <input type="text" class="iText" id="iMateria" name="materia">
+                </div>
+                <div id="botones">
+                    <button type="submit" id="btnSubmit" id="" class="btn btn-primary" value="Confirmar">Confirmar</button>
+                    <button type="button" id="btnMostrar" id="" class="btn btn-primary" value="Mostrar todos">Mostrar todos</button>
+                </div>
+            </form>
+
+            <div id="alumnoIngresado">
+            </div>
+
+        </div>
+
+        <div id="displayTodos">
+
+        </div>
+
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>

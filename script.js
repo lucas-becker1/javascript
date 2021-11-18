@@ -1,37 +1,35 @@
-// Creo una clase EGRESADO para guardar los datos ingresados por el usuario.
-class Egresado{
-    constructor(id, nombreCompleto, edad, talle, color) {
+class Cliente{
+    constructor(id, nombre, apellido, talle, color) {
         this.id = id;
-        this.nombreCompleto = nombreCompleto;
-        this.edad = edad;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.talle = talle;
         this.color = color;
     }
 }
 
-// Inicializo mi variable en 1
+
 let id = 1;
 
-// Creo un array vacio
-let Egre = []
 
-// Aca obtengo los elementos mediante el ID , luego cuando tocan el boton de enviar me muestra por consola los 
-// datos ingresados por el usuario.
-let formEgresado = document.getElementById("formEgresado")
-formEgresado.addEventListener("submit", (egresadoss) => {
-    egresadoss.preventDefault()
+let Client = []
+
+
+let formClientes = document.getElementById("formClientes")
+formClientes.addEventListener("submit", (clientess) => {
+    clientess.preventDefault()
     
-    let formDatos = new FormData(egresadoss.target)
-    console.log(egresadoss.target)
+    let formDatos = new FormData(clientess.target)
+    console.log(clientess.target)
     console.log(formDatos.get("nombre"))
-    console.log(formDatos.get("edad"))
+    console.log(formDatos.get("apellido"))
     console.log(formDatos.get("talle"))
     console.log(formDatos.get("color"))
-    let Egresado_Datos = new Egresado(id, formDatos.get("nombre"), formDatos.get("edad"), formDatos.get("talle"), formDatos.get("color"))
+    let Clientes_Datos = new Cliente(id, formDatos.get("nombre"), formDatos.get("apellido"), formDatos.get("talle"), formDatos.get("color"))
     id++
-    console.log(Egresado_Datos)
-    // Agrego con un push cada dato al array
-    Egre.push(Egre)
+    console.log(Clientes_Datos)
+
+    Client.push(Client)
 })
 
 
@@ -40,24 +38,23 @@ document.getElementById("input1").addEventListener("change", () => {
     parrafo1.innerText = "¡Usuario disponible!"
 }) 
 
-// Creo una función donde registro cada uno de mis productos 
-function Producto (nombreProducto, talle, tela, color) {
-    this.nombreProducto = nombreProducto;
-    this.talle = talle;
-    this.tela = tela;
+
+function Producto (nombre, talle, precio, color) {
+    this.nombre = nombre;
+    this.talle = parseInt(talle);
+    this.precio = parseFloat(precio);
     this.color = color;
-    this.mostrar = () => console.log("Stock ¡OK!");
-    this.retorna = () => `${this.nombreProducto} ${this.talle}`
+    this.mostrar = () => console.log("Stock disponible");
 }
 
-// Creo 5 const donde utilizo la función producto para poder registrar mis 5 productos 
-const producto1 = new Producto("campera", 4, "jersey", "blue")
-const producto2 = new Producto("chomba", 7, "pique", "white")
-const producto3 = new Producto("remera", 4, "jersey", "orange")
-const producto4 = new Producto("buzo", 5, "friza", "red")
-const producto5 = new Producto("pantalon", 6, "friza", "black")
+ 
+const producto1 = new Producto("camiseta", 3, 300, "rojo")
+const producto2 = new Producto("short", 2, 250, "negro")
+const producto3 = new Producto("medias", 1, 100, "blanco")
+const producto4 = new Producto("pantalon", 3, 400, "azul")
+const producto5 = new Producto("campera", 4, 450, "azul")
 
-// Muestro que los productos fueron registrados correctamente
+
 producto1.mostrar()
 producto2.mostrar()
 producto3.mostrar()
@@ -65,22 +62,18 @@ producto4.mostrar()
 producto5.mostrar()
 
 
-// Creo Arrays para ofrecer 5 combos de mis productos
+const combo1 = ["Camiseta" ,  " Short"];
+const combo2 = ["Campera" , " Pantalon"];
+const combo3 = ["Campera", " Camiseta"];
+const combo4 = ["Camiseta", " Short", " Medias"];
+const combo5 = ["Campera" , " Pantalon" , " Camiseta"];
 
-const combo1 = ["Campera " ,  " Chomba "];
-const combo2 = ["Campera" , " Buzo"];
-const combo3 = ["Buzo", " Remera"];
-const combo4 = ["Chomba", " Pantalon", "Buzo"];
-const combo5 = ["Campera" , "Remera" , "Pantalon"];
-
-// Utilizo la propiedad LENGHT para saber cuantos productos tiene cada combo
 
 console.log( "El combo1 contiene: " + combo1.length + " productos y son: " + combo1 ); 
-console.log( "El combo2 contiene: " + combo2.length + " productos  y son: " + combo2 ); 
-console.log( "El combo3 contiene: " + combo3.length + " productos  y son: " + combo3 ); 
-console.log( "El combo4 contiene: " + combo4.length + " productos  y son: " + combo4 ); 
-console.log( "El combo5 contiene: " + combo5.length + " productos  y son: " + combo5 ); 
-
+console.log( "El combo2 contiene: " + combo2.length + " productos y son: " + combo2 ); 
+console.log( "El combo3 contiene: " + combo3.length + " productos y son: " + combo3 ); 
+console.log( "El combo4 contiene: " + combo4.length + " productos y son: " + combo4 ); 
+console.log( "El combo5 contiene: " + combo5.length + " productos y son: " + combo5 ); 
 
 
 let datos = []
@@ -94,5 +87,5 @@ botonAgregarLista.addEventListener("click", () => {
     console.log(datos)
 })
 botonAgregarLista.onclick = () => {
-    console.log("¡Registro OK!")
+    console.log("¡Registrado")
 }

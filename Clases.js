@@ -1,22 +1,9 @@
 class Cliente {
-    constructor(nombre, apellido, email, edad, sueldo) {
+    constructor(nombre, apellido, email, edad, talle) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.edad = edad;
-        this.sueldo = sueldo
-    }
-
-    realizarPago(gasto) {
-        this.sueldo -= gasto
-    }
-
+        this.talle = talle;
 }
-
-class Tarjeta {
-    constructor(numero, fechaVencimiento, tipo) {
-        this.numero = numero;
-        this.fechaVencimiento = fechaVencimiento;
-        this.tipo = tipo;
-    }
 }

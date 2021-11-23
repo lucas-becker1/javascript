@@ -7,7 +7,7 @@ let divClientes = document.getElementById("divClientes")
 formCliente.addEventListener("submit", (e) => {
     e.preventDefault()
     let datosFormulario = new FormData(e.target)
-    let cliente = new Cliente(datosFormulario.get("nombre"), datosFormulario.get("apellido"), datosFormulario.get("email"), datosFormulario.get("edad"), datosFormulario.get("sueldo"))
+    let cliente = new Cliente(datosFormulario.get("nombre"), datosFormulario.get("apellido"), datosFormulario.get("email"), datosFormulario.get("edad"), datosFormulario.get("talle"))
     clientes.push(cliente)
     localStorage.setItem('clientes',JSON.stringify(clientes))
     formCliente.reset()
@@ -24,7 +24,7 @@ botonClientes.addEventListener("click", () => {
                 <p>Apellido: ${cliente.apellido}</p>
                 <p>Edad: ${cliente.edad}</p>
                 <p>Email: ${cliente.email}</p>
-                <p>Talle: ${cliente.sueldo}</p>
+                <p>Talle: ${cliente.talle}</p>
                 <button type="button" class="btn btn-danger" id="boton${indice + 1}">Eliminar</button>
             </div>
         </div>

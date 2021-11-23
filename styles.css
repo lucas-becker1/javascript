@@ -1,71 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body{
     background-color: #E6E6E6;
 }
 
-.Bienvenida1{
+.bienvenida1{
     background-color: #2E4C6D;
-    font-size: 40px;
-    color: #E6E6E6;
     text-align: center;
-    font-family:  'Saira Extra Condensed', sans-serif;
-    
 }
 
-h4{
+h1{
+    text-align: center;
+    color: #E6E6E6;
+    font-size: 250%;
+    font-family:  'Roboto', sans-serif;
+    font-weight: 500;
+    padding: 0.8rem;
+}
+
+h2{
     text-align: center;
     color: #0A2035;
-    font-family:  'Saira Extra Condensed', sans-serif;
+    font-size: 200%;
+    font-family:  'Roboto', sans-serif;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+.contacto__form {
+    font-size: 130%;
+    font-family:  'Roboto', sans-serif;
+    font-weight: 300;
+    padding: 1rem;
+    margin: 1rem;
+    border: #0A2035 2px solid;
+  }
   
-}
-
-.btn{
+.form-group {
+    padding: 0.6rem;
+  }
+  
+.btn-primary {
     background-color: #396EB0;
-}
+    font-family:  'Roboto', sans-serif;
+    font-size: 80%;
+    margin-top: 0.6rem;
+  }
 
-#botonMostrarClientes{
+.btn-link {
     background-color: #396EB0;
     color: white;
+    margin: 1rem;
 }
 
 .card{
     background-color: #396EB0;
     color: white;
-    font-family: 'Saira Extra Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 #boton1{
     background-color: #AB1616;
-    border: #AB1616;
     color: white;
 }
 
 .card-title{
     color: white;
-    font-family:  'Saira Extra Condensed', sans-serif;
+    font-family:  'Roboto', sans-serif;
+}
+
+.ingClientes{
+    margin: 1rem;
 }
 
 #parrafo1{
     color: #0A2035;
-    font-size: medium;
-    font-family:  'Saira Extra Condensed', sans-serif;
-
-   
+    font-size: 130%;
+    font-family:  'Roboto', sans-serif;
 }
 
 #input1{
     background-color: white;
     color: #0A2035;
-    font-family:  'Saira Extra Condensed', sans-serif;
+    font-family:  'Roboto', sans-serif;
     text-align: center;
-    
-}
-
-#input1{
-    background-color: white;
-    color: #0A2035;
-    font-family:  'Saira Extra Condensed', sans-serif;
-}
-
-div{
-    font-family:  'Saira Extra Condensed', sans-serif;
 }

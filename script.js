@@ -1,50 +1,54 @@
-let clientes = []
-
-let formCliente = document.getElementById("formCliente")
-let botonClientes = document.getElementById("botonMostrarClientes")
-let divClientes = document.getElementById("divClientes")
-
-formCliente.addEventListener("submit", (e) => {
-    e.preventDefault()
-    let datosFormulario = new FormData(e.target)
-    let cliente = new Cliente(datosFormulario.get("nombre"), datosFormulario.get("apellido"), datosFormulario.get("email"), datosFormulario.get("edad"), datosFormulario.get("talle"))
-    clientes.push(cliente)
-    localStorage.setItem('clientes',JSON.stringify(clientes))
-    formCliente.reset()
-})
-
-botonClientes.addEventListener("click", () => {
-    let clientesParseados = JSON.parse(localStorage.getItem('clientes'))
-    clientesParseados.forEach((cliente, indice) => {
-        divClientes.innerHTML += `
-        <div class="card" style="width: 18rem;" id="cliente${indice + 1}">
-            <div class="card-body">
-                <h5 class="card-title">Cliente ${indice + 1}</h5>
-                <p>Nombre: ${cliente.nombre}</p>
-                <p>Apellido: ${cliente.apellido}</p>
-                <p>Edad: ${cliente.edad}</p>
-                <p>Email: ${cliente.email}</p>
-                <p>Talle: ${cliente.talle}</p>
-                <button type="button" class="btn btn-danger" id="boton${indice + 1}">Eliminar</button>
+class Camiseta {
+    constructor(id, equipo, temporada, talle) {
+        this.id = id;
+        this.equipo = equipo;
+        this.temporada = temporada;
+        this.talle = talle;
+    }
+    
+devolverDatos() {
+        return `
+            <div class="card" style="width: 18rem"; id="${this.id}">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta N°${this.id}</h5>
+                    <p class="card-text">Equipo: ${this.equipo}</p>
+                    <p class="card-text">Temporada: ${this.tempoada}</p>
+                    <p class="card-text">Talle: ${this.talle}</p>
+                    <a href="#" class="btn btn-danger" id="boton${this.id}">Eliminar</a>
+                </div>
             </div>
-        </div>
-    `
-})
+        `
+    }
+}
 
-    clientesParseados.forEach((cliente, indice) => {
-        document.getElementById(`boton${indice + 1}`).addEventListener("click", () => {
-            divClientes.removeChild(document.getElementById(`cliente${indice + 1}`))
-            clientesParseados.splice(indice,1)
-            console.log(clientesParseados)
-            console.log(`Cliente ${cliente.nombre} eliminado` )
-            localStorage.setItem('clientes', JSON.stringify(clientesParseados))
+function crearId() {
+    const cabecera = Date.now().toString(36)
+    const cuerpo = Math.random().toString(36).substring(2)
+    return cabecera + cuerpo
+}
+
+let camisetas = []
+
+$(() => {
+    $('#boton1').click(() => {
+        camisetas.forEach(camiseta => {
+            $('#camisetas').append(camiseta.devolverDatos());
+        })
+        camisetas.forEach(camiseta => {
+            $(`#boton${camiseta.id}`).click(() => {
+                $(`#camisetas #${camiseta.id}`).remove()
+                let indice = camisetas.findIndex(camisetaBuscar => camisetaBuscar.id == camiseta.id)
+                camisetas.splice(indice,1)
+            })
         })
     })
-    
+
+    $('#formCamiseta').submit((e) => {
+        e.preventDefault()
+        let datosCamiseta = new FormData(e.target)
+        let camiseta = new Camiseta(crearId(), datosCamiseta.get("equipo"), datosCamiseta.get("temporada"), datosCamiseta.get("talle"))
+        camisetas.push(camiseta)
+        console.log(camiseta)
+        $('#formCamiseta').trigger('reset')
+    })
 })
-
-
-document.getElementById("input1").addEventListener("change", () => {
-    let parrafo1 = document.getElementById("parrafo1")
-    parrafo1.innerText = "¡Usuario disponible!"
-}) 

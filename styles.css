@@ -11,6 +11,11 @@ body{
     background-color: #E6E6E6;
 }
 
+.dark {
+    background-color: black;
+    color: antiquewhite;
+}
+
 .bienvenida1{
     background-color: #2E4C6D;
     text-align: center;
